@@ -3,12 +3,38 @@
  */
 package busboard;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    public static void main(String[] args) {
+        // Ask user for Post Code and take Stop Code as Input
+        // Build HTTP client, whatever that means
+        // Print out next 5 busses
+        // May need Query parameter at the end for app key or something?
+
+        // String stopCode = "";
+        // UserInputScanner uis = new UserInputScanner();
+        // stopCode.equals(uis.busStopCodeUserInput());
+
+        requestHandler();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    public static void requestHandler() {
+        HttpClient client = HttpClient.newHttpClient();
+                
+        HttpRequest request = HttpRequest.newBuilder()
+         .uri(URI.create("https://api.tfl.gov.uk/StopPoint/490000129R/Arrivals"))
+         .build(); 
+
+        try{ HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+            System.out.println(response.statusCode());
+            System.out.println(response.body());
+        } catch(Exception e) {
+            System.out.println(e);
+        }
     }
 }
