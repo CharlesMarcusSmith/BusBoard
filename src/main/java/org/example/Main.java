@@ -31,31 +31,45 @@ public class Main {
         //^ take lat, long, bus stop type V, and radius
         //NaptanOnstreetBusCoachStopPair ??
 
+        //User Input for Stop Code:
         String stopCode = "";
         UserInputScanner uis = new UserInputScanner();
         stopCode = uis.busStopCodeUserInput();
 
-        BusStopRequestHandler();
+        //Making http request:
+        String jsonResponse = BusStopRequestHandler();
+
+        //Converting the above JSON response to List of StopInfo objects:
+        List<StopInfo> stops = new ArrayList<>();
+        stops = BusStopResponseHandler(jsonResponse);
+
+        for (StopInfo tempStopInfo : stops) {
+            System.out.println(tempStopInfo.getTimeToStation());
+        }
+
     }
 
-    public static void BusStopRequestHandler() {
+    public static String BusStopRequestHandler() {
         HttpClient client = HttpClient.newHttpClient();
+        String jsonResponse = "";
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.tfl.gov.uk/StopPoint/490000129R/Arrivals"))
                 .build();
 
-        try{ HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+        try{
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
             System.out.println(response.statusCode());
             System.out.println(response.body());
 
-            BusStopResponseHandler(response.body());
+            jsonResponse = response.body();
         } catch(Exception e) {
 //            System.out.println(e);
         }
+        return jsonResponse;
     }
 
-    public static void BusStopResponseHandler(String jsonString){
+    public static List<StopInfo> BusStopResponseHandler(String jsonString){
         // Just remember (while casting or using methods like getJSONObject and getJSONArray) that in JSON notation
         // [ … ] represents an array, so library will parse it to JSONArray
         // { … } represents an object, so library will parse it to JSONObject
@@ -63,6 +77,7 @@ public class Main {
         JSONArray jsonArray = new JSONArray(jsonString); //inside [ means its array, so this turns string to array
         List<StopInfo> stops = new ArrayList<>();
 
+        //Converting JSON String to array of StopInfo objects.
         for(int i=0; i<jsonArray.length(); i++) {
             JSONObject jObject = jsonArray.getJSONObject(i); //looping through array and getting JSONobject { one at a time
 
@@ -79,6 +94,7 @@ public class Main {
             stops.add(si);
         }
 
+        //Sorting List of stops by timeToArrival
         try {
             System.out.println("Trying to sort");
             Collections.sort(stops, new Comparator<StopInfo>() {
@@ -91,11 +107,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
         }
-        System.out.println("List:");
-        for(int i=0; i<stops.size(); i++) {
-            StopInfo tempStopInfo = stops.get(i);
-            System.out.println(tempStopInfo.getTimeToStation());
-        }
+        return stops;
     }
 
 
