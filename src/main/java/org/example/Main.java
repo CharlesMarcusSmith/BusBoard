@@ -37,31 +37,35 @@ public class Main {
         stopCode = uis.busStopCodeUserInput();
 
         //Making http request:
-        String jsonResponse = BusStopRequestHandler();
+        String jsonResponse = BusStopRequestHandler(stopCode);
 
         //Converting the above JSON response to List of StopInfo objects:
         List<StopInfo> stops = new ArrayList<>();
         stops = BusStopResponseHandler(jsonResponse);
 
-        for (StopInfo tempStopInfo : stops) {
-            System.out.println(tempStopInfo.getTimeToStation());
+        for(int i=0; i<5; i++) {
+            StopInfo tempStopInfo = stops.get(i);
+
+            int mins = tempStopInfo.getTimeToStation() / 60;
+            int seconds = tempStopInfo.getTimeToStation() % 60;
+
+            System.out.println(tempStopInfo.getStationName());
+            System.out.println("Expected:" + tempStopInfo.expectedArrival);
+            System.out.println(mins + "Mins " + seconds + "s");
+            System.out.println();
         }
 
     }
 
-    public static String BusStopRequestHandler() {
+    public static String BusStopRequestHandler(String UserStopCode) {
         HttpClient client = HttpClient.newHttpClient();
         String jsonResponse = "";
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.tfl.gov.uk/StopPoint/490000129R/Arrivals"))
+                .uri(URI.create("https://api.tfl.gov.uk/StopPoint/" + UserStopCode + "/Arrivals"))
                 .build();
-
         try{
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-            System.out.println(response.statusCode());
-            System.out.println(response.body());
-
             jsonResponse = response.body();
         } catch(Exception e) {
 //            System.out.println(e);
@@ -79,17 +83,15 @@ public class Main {
 
         //Converting JSON String to array of StopInfo objects.
         for(int i=0; i<jsonArray.length(); i++) {
-            JSONObject jObject = jsonArray.getJSONObject(i); //looping through array and getting JSONobject { one at a time
-
+            JSONObject jObject = jsonArray.getJSONObject(i);
+            //Variable to build StopInfo object:
             String id = jObject.get("id").toString();
             String stationName = jObject.get("stationName").toString();
-
             String expectedArrival = jObject.get("expectedArrival").toString();
-            //Countdown:
             String timestamp = jObject.get("timestamp").toString();
             String tts = jObject.get("timeToStation").toString();
             int timeToStation = Integer.parseInt(tts);
-
+            //Constructing StopInfo object:
             StopInfo si = new StopInfo(id, stationName, expectedArrival, timestamp, timeToStation);
             stops.add(si);
         }
