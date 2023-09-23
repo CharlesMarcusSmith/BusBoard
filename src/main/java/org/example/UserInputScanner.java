@@ -13,4 +13,15 @@ public class UserInputScanner {
         sc.close();
         return stopCode;
     }
+
+    public String postCodeInput(){
+        String input = "";
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter the postcode you wish to search.");
+        System.out.println("For example SE10 0QJ:");
+        input = sc.nextLine();
+
+        return input;
+    }
 }
