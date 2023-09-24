@@ -6,7 +6,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class RequestHandler {
-    public String BusStopInfo(String userStopCode) {
+    public String busStopInfo(String userStopCode) {
         HttpClient client = HttpClient.newHttpClient();
         String jsonResponse = "";
 

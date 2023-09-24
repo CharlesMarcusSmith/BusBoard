@@ -29,7 +29,7 @@ public class Main {
 
         // Making http request:
         RequestHandler requestHandler = new RequestHandler();
-        String jsonResponse = requestHandler.BusStopInfo(input);
+        String jsonResponse = requestHandler.busStopInfo(input);
 
         // Converting the above JSON response to List of StopInfo objects:
         List<StopInfo> stops = new ArrayList<>();
@@ -40,18 +40,24 @@ public class Main {
         // User input for post code:
         input = userInputScanner.postCodeInput();
         //Last time we'll be using scanner:
-        userInputScanners.close();
+        userInputScanner.close();
 
         //Making JSON request for Post Code:
         jsonResponse = requestHandler.postcode(input);
 
         //Converting response to lat and long stored in array
         String[] latAndLong = new String[2];
-        responseHandler.LongAndLat(input);
+        responseHandler.LongAndLat(jsonResponse);
 
 
 
     }
+
+    public static void busStopOptionSelected(){
+
+    }
+
+
     public static void outputStops(List<StopInfo> stops){
         for(int i=0; i<5; i++) {
             StopInfo tempStopInfo = stops.get(i);

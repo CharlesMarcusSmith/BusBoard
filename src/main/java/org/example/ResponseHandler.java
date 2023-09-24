@@ -3,6 +3,7 @@ package org.example;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -48,12 +49,23 @@ public class ResponseHandler {
         return stops;
     }
 
-    public String[] LongAndLat(String response){
-        JSONObject jsonObject = new JSONObject(response);
-        String[] latAndLong = new String[2];
+    public BigDecimal[] LongAndLat(String response){
+        BigDecimal[] latAndLong = new BigDecimal[2];
+        JSONObject outer = new JSONObject(response);
+        BigDecimal longitude;
+        BigDecimal latitude;
+        try {
+            JSONObject inner = outer.getJSONObject("result");
+            longitude = inner.getBigDecimal("longitude");
+            latitude = inner.getBigDecimal("latitudes");
+            latAndLong[0]= longitude;
 
-        latAndLong[0] = jsonObject.getJSONObject("Result").getString("latitude");
-        latAndLong[1] = jsonObject.getJSONObject("Result").getString("longitude");
+        } catch (Exception e){
+
+        }
+
+//        latAndLong[0] = outer.getJSONObject("result").getBigDecimal("latitude");
+//        latAndLong[1] = outer.getJSONObject("result").getBigDecimal("longitude");
 
         return latAndLong;
     }
