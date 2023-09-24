@@ -14,14 +14,17 @@ import org.json.*;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // May need Query parameter at the end for app key or something?
 
+        // DEVELOPEMENT NOTES / TO DO:
+        // May need Query parameter at the end for app key or something?
         // Ask user for Post Code and take Stop Code as Input
-        //http://api.postcodes.io/postcodes/
-        // https://api.tfl.gov.uk/StopPoint/?lat=51.490231&lon=0.012856&stopTypes=NaptanOnstreetBusCoachStopPair&radius=100
         //"Get list of bus stops in a specified...
         //^ take lat, long, bus stop type V, and radius
         //NaptanOnstreetBusCoachStopPair ??
+        //Reduce size of results to two till sorted by Distance
+        // Exception hadnling and loggin required.s
+        //What if no results are found but data is entered correctly? like no bus stops are found with long lat etc..
+
         String input = "";
         UserInputScanner userInputScanner = new UserInputScanner();
         input = userInputScanner.inputOptionSelector();
@@ -52,7 +55,9 @@ public class Main {
         //Converting response to lat and long stored in array
         ResponseHandler responseHandler = new ResponseHandler();
         BigDecimal[] latAndLong = responseHandler.LatAndLong(jsonResponse);
-        System.out.println("It works, lat = " + latAndLong[0] + " and long = " + latAndLong[1] + "!");
+
+        jsonResponse = requestHandler.busStopFinder(latAndLong);
+        List<String> stops = responseHandler.stopFinder(jsonResponse);
     }
 
     public static void busStopOptionSelected(){
@@ -71,7 +76,6 @@ public class Main {
         stops = responseHandler.BusStopInfo(jsonResponse);
         outputStops(stops);
     }
-
 
     public static void outputStops(List<StopInfo> stops){
         for(int i=0; i<5; i++) {

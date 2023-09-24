@@ -14,11 +14,13 @@ public class UserInputScanner {
 
         return input;
         }
+
     public String busStopCodeUserInput(){
         String input = "";
 
         System.out.println("Please enter the bus stop code you wish to search");
         System.out.println("For Example: 490000129R");
+
         input = sc.nextLine();
 
         return input;

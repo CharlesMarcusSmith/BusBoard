@@ -1,0 +1,180 @@
+{"$type":"Tfl.Api.Presentation.Entities.StopPointsResponse, Tfl.Api.Presentation.Entities","centrePoint":[51.49,0.012],"stopPoints":[{"$type":"Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities","naptanId":"490G00013356","modes":["bus"],"icsCode":"1013356","stopType":"NaptanOnstreetBusCoachStopPair","stationNaptan":"490G00013356","lines":[{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"108","name":"108","uri":"/Line/108","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"},{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"129","name":"129","uri":"/Line/129","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"},{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"132","name":"132","uri":"/Line/132","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"},{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"161","name":"161","uri":"/Line/161","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"},{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"180","name":"180","uri":"/Line/180","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"},{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"335","name":"335","uri":"/Line/335","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"},{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"472","name":"472","uri":"/Line/472","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"},{"$type":"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities","id":"486","name":"486","uri":"/Line/486","type":"Line","crowding":{"$type":"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"},"routeType":"Unknown","status":"Unknown"}],"lineGroup":[{"$type":"Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities","naptanIdReference":"490013356E","stationAtcoCode":"490G00013356","lineIdentifier":["108","129","132","161","180","335","472","486"]},{"$type":"Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities","naptanIdReference":"490013356W","stationAtcoCode":"490G00013356","lineIdentifier":["108","129","132","161","180","335","472","486"]}],"lineModeGroups":[{"$type":"Tfl.Api.Presentation.Entities.LineModeGroup, Tfl.Api.Presentation.Entities","modeName":"bus","lineIdentifier":["108","129","132","161","180","335","472","486"]}],"status":true,"id":"490G00013356","commonName":"Millennium Leisure Park West","distance":73.306178360228813,"placeType":"StopPoint","additionalProperties":[],"children":[{"$type":"Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities","naptanId":"490013356E","indicator":"Stop ME","stopLetter":"ME","modes":[],"icsCode":"1013356","stationNaptan":"490G00013356","lines":[],"lineGroup":[],"lineModeGroups":[],"status":true,"id":"490013356E","commonName":"Millennium Leisure Park West","placeType":"StopPoint","additionalProperties":[],"children":[],"lat":51.490075,"lon":0.013051},{"$type":"Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities","naptanId":"490013356W","indicator":"Stop MJ","stopLetter":"MJ","modes":[],"icsCode":"1013356","stationNaptan":"490G00013356","lines":[],"lineGroup":[],"lineModeGroups":[],"status":true,"id":"490013356W","commonName":"Millennium Leisure Park West","placeType":"StopPoint","additionalProperties":[],"children":[],"lat":0.0,"lon":0.0}],"lat":51.490075,"lon":0.013051}],"pageSize":0,"total":0,"page":0}
+
+    Which makes:
+
+
+$type	"Tfl.Api.Presentation.Entities.StopPointsResponse, Tfl.Api.Presentation.Entities"
+centrePoint
+0	51.49
+1	0.012
+stopPoints
+0
+$type	"Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities"
+naptanId	"490G00013356"
+modes
+0	"bus"
+icsCode	"1013356"
+stopType	"NaptanOnstreetBusCoachStopPair"
+stationNaptan	"490G00013356"
+lines
+0	{…}
+1
+$type	"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities"
+id	"129"
+name	"129"
+uri	"/Line/129"
+type	"Line"
+crowding
+$type	"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"
+routeType	"Unknown"
+status	"Unknown"
+2
+$type	"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities"
+id	"132"
+name	"132"
+uri	"/Line/132"
+type	"Line"
+crowding
+$type	"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"
+routeType	"Unknown"
+status	"Unknown"
+3
+$type	"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities"
+id	"161"
+name	"161"
+uri	"/Line/161"
+type	"Line"
+crowding
+$type	"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"
+routeType	"Unknown"
+status	"Unknown"
+4
+$type	"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities"
+id	"180"
+name	"180"
+uri	"/Line/180"
+type	"Line"
+crowding
+$type	"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"
+routeType	"Unknown"
+status	"Unknown"
+5
+$type	"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities"
+id	"335"
+name	"335"
+uri	"/Line/335"
+type	"Line"
+crowding
+$type	"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"
+routeType	"Unknown"
+status	"Unknown"
+6
+$type	"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities"
+id	"472"
+name	"472"
+uri	"/Line/472"
+type	"Line"
+crowding
+$type	"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"
+routeType	"Unknown"
+status	"Unknown"
+7
+$type	"Tfl.Api.Presentation.Entities.Identifier, Tfl.Api.Presentation.Entities"
+id	"486"
+name	"486"
+uri	"/Line/486"
+type	"Line"
+crowding
+$type	"Tfl.Api.Presentation.Entities.Crowding, Tfl.Api.Presentation.Entities"
+routeType	"Unknown"
+status	"Unknown"
+lineGroup
+0
+$type	"Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities"
+naptanIdReference	"490013356E"
+stationAtcoCode	"490G00013356"
+lineIdentifier
+0	"108"
+1	"129"
+2	"132"
+3	"161"
+4	"180"
+5	"335"
+6	"472"
+7	"486"
+1
+$type	"Tfl.Api.Presentation.Entities.LineGroup, Tfl.Api.Presentation.Entities"
+naptanIdReference	"490013356W"
+stationAtcoCode	"490G00013356"
+lineIdentifier
+0	"108"
+1	"129"
+2	"132"
+3	"161"
+4	"180"
+5	"335"
+6	"472"
+7	"486"
+lineModeGroups
+0
+$type	"Tfl.Api.Presentation.Entities.LineModeGroup, Tfl.Api.Presentation.Entities"
+modeName	"bus"
+lineIdentifier
+0	"108"
+1	"129"
+2	"132"
+3	"161"
+4	"180"
+5	"335"
+6	"472"
+7	"486"
+status	true
+id	"490G00013356"
+commonName	"Millennium Leisure Park West"
+distance	73.30617836022881
+placeType	"StopPoint"
+additionalProperties	[]
+children
+0
+$type	"Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities"
+naptanId	"490013356E"
+indicator	"Stop ME"
+stopLetter	"ME"
+modes	[]
+icsCode	"1013356"
+stationNaptan	"490G00013356"
+lines	[]
+lineGroup	[]
+lineModeGroups	[]
+status	true
+id	"490013356E"
+commonName	"Millennium Leisure Park West"
+placeType	"StopPoint"
+additionalProperties	[]
+children	[]
+lat	51.490075
+lon	0.013051
+1
+$type	"Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities"
+naptanId	"490013356W"
+indicator	"Stop MJ"
+stopLetter	"MJ"
+modes	[]
+icsCode	"1013356"
+stationNaptan	"490G00013356"
+lines	[]
+lineGroup	[]
+lineModeGroups	[]
+status	true
+id	"490013356W"
+commonName	"Millennium Leisure Park West"
+placeType	"StopPoint"
+additionalProperties	[]
+children	[]
+lat	0
+lon	0
+lat	51.490075
+lon	0.013051
+pageSize	0
+total	0
+page	0

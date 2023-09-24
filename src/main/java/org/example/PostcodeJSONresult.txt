@@ -1,0 +1,45 @@
+{"status":200,"result":{"postcode":"SE10 0QJ","quality":1,"eastings":539842,"northings":178730,"country":"England","nhs_ha":"London","longitude":0.012856,"latitude":51.490231,"european_electoral_region":"London","primary_care_trust":"Greenwich Teaching","region":"London","lsoa":"Greenwich 036B","msoa":"Greenwich 036","incode":"0QJ","outcode":"SE10","parliamentary_constituency":"Greenwich and Woolwich","admin_district":"Greenwich","parish":"Greenwich, unparished area","admin_county":null,"date_of_introduction":"199912","admin_ward":"Greenwich Peninsula","ced":null,"ccg":"NHS South East London","nuts":"Bexley and Greenwich","pfa":"Metropolitan Police","codes":{"admin_district":"E09000011","admin_county":"E99999999","admin_ward":"E05014082","parish":"E43000201","parliamentary_constituency":"E14000718","ccg":"E38000244","ccg_id":"72Q","ced":"E99999999","nuts":"TLI51","lsoa":"E01001667","msoa":"E02006929","lau2":"E09000011","pfa":"E23000001"
+
+    Which makes:
+
+status	200
+result
+postcode	"SE10 0QJ"
+quality	1
+eastings	539842
+northings	178730
+country	"England"
+nhs_ha	"London"
+longitude	0.012856
+latitude	51.490231
+european_electoral_region	"London"
+primary_care_trust	"Greenwich Teaching"
+region	"London"
+lsoa	"Greenwich 036B"
+msoa	"Greenwich 036"
+incode	"0QJ"
+outcode	"SE10"
+parliamentary_constituency	"Greenwich and Woolwich"
+admin_district	"Greenwich"
+parish	"Greenwich, unparished area"
+admin_county	null
+date_of_introduction	"199912"
+admin_ward	"Greenwich Peninsula"
+ced	null
+ccg	"NHS South East London"
+nuts	"Bexley and Greenwich"
+pfa	"Metropolitan Police"
+codes
+admin_district	"E09000011"
+admin_county	"E99999999"
+admin_ward	"E05014082"
+parish	"E43000201"
+parliamentary_constituency	"E14000718"
+ccg	"E38000244"
+ccg_id	"72Q"
+ced	"E99999999"
+nuts	"TLI51"
+lsoa	"E01001667"
+msoa	"E02006929"
+lau2	"E09000011"
+pfa	"E23000001"

@@ -10,6 +10,34 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ResponseHandler {
+
+    public BigDecimal[] LatAndLong(String jsonString){
+        BigDecimal[] latAndLong = new BigDecimal[2];
+        JSONObject response = new JSONObject(jsonString);
+
+        latAndLong[0] = response.getJSONObject("result").getBigDecimal("latitude");
+        latAndLong[1] = response.getJSONObject("result").getBigDecimal("longitude");
+
+        return latAndLong;
+    }
+
+    public List<String> stopFinder(String jsonString){
+        List<String> stops = new ArrayList<>();
+        JSONObject response = new JSONObject(jsonString);
+        JSONArray JSONstopPoints = response.getJSONArray("stopPoints");
+        JSONObject JSONNestObject= JSONstopPoints.getJSONObject(0);
+        JSONArray JSONlineGroup = JSONNestObject.getJSONArray("lineGroup");
+        String stopCode = "";
+
+        for(int i = 0; i < JSONlineGroup.length() && i < 2; i++){
+            stopCode = JSONlineGroup.getJSONObject(i).getString("naptanIdReference");
+            stops.add(stopCode);
+        }
+//        "naptanIdReference"
+
+        return stops;
+    }
+
     public List<StopInfo> BusStopInfo(String jsonString){
         // Just remember (while casting or using methods like getJSONObject and getJSONArray) that in JSON notation
         // [ … ] represents an array, so library will parse it to JSONArray
@@ -48,15 +76,4 @@ public class ResponseHandler {
         }
         return stops;
     }
-
-    public BigDecimal[] LatAndLong(String responseString){
-        BigDecimal[] latAndLong = new BigDecimal[2];
-        JSONObject response = new JSONObject(responseString);
-
-        latAndLong[0] = response.getJSONObject("result").getBigDecimal("latitude");
-        latAndLong[1] = response.getJSONObject("result").getBigDecimal("longitude");
-
-        return latAndLong;
-    }
-
 }
