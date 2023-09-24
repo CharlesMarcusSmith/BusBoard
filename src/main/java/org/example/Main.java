@@ -39,6 +39,8 @@ public class Main {
 
         // User input for post code:
         input = userInputScanner.postCodeInput();
+        //Last time we'll be using scanner:
+        userInputScanners.close();
 
         //Making JSON request for Post Code:
         jsonResponse = requestHandler.postcode(input);

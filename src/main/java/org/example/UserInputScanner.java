@@ -20,9 +20,12 @@ public class UserInputScanner {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Please enter the postcode you wish to search.");
-        System.out.println("For example SE10 0QJ:");
+        System.out.println("For example SE100QJ:");
         input = sc.nextLine();
 
         return input;
+    }
+    public void close(){
+        sc.close();
     }
 }
