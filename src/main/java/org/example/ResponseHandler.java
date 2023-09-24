@@ -38,7 +38,7 @@ public class ResponseHandler {
         return stops;
     }
 
-    public List<StopInfo> BusStopInfo(String jsonString){
+    public List<StopInfo> busStopInfo(String jsonString){
         // Just remember (while casting or using methods like getJSONObject and getJSONArray) that in JSON notation
         // [ … ] represents an array, so library will parse it to JSONArray
         // { … } represents an object, so library will parse it to JSONObject
@@ -52,18 +52,18 @@ public class ResponseHandler {
             //Variable to build StopInfo object:
             String id = jObject.get("id").toString();
             String stationName = jObject.get("stationName").toString();
+            String destination = jObject.get("destinationName").toString();
             String expectedArrival = jObject.get("expectedArrival").toString();
             String timestamp = jObject.get("timestamp").toString();
             String tts = jObject.get("timeToStation").toString();
             int timeToStation = Integer.parseInt(tts);
             //Constructing StopInfo object:
-            StopInfo si = new StopInfo(id, stationName, expectedArrival, timestamp, timeToStation);
+            StopInfo si = new StopInfo(id, stationName, destination, expectedArrival, timestamp, timeToStation);
             stops.add(si);
         }
 
         //Sorting List of stops by timeToArrival
         try {
-            System.out.println("Trying to sort");
             Collections.sort(stops, new Comparator<StopInfo>() {
                 @Override
                 public int compare(StopInfo o1, StopInfo o2) {
@@ -74,6 +74,14 @@ public class ResponseHandler {
         } catch (Exception e) {
             System.out.println(e);
         }
+
+        //Reducing sorted list to 5 records:
+        if(stops.size()>5){
+            for(int i = stops.size(); i>5; i--){
+                stops.remove(i-1);
+            }
+        }
+
         return stops;
     }
 }

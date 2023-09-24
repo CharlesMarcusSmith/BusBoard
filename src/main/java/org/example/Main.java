@@ -18,6 +18,8 @@ public class Main {
         //DEVELOPEMENT NOTES / TO DO:
         //Add destination to StopInfo and Response method
         //Call StopInfo
+        //Reduce array of stops in ResponseHandler.BusStopInfo to 5 after sorting
+
 
 
 
@@ -65,9 +67,17 @@ public class Main {
         ResponseHandler responseHandler = new ResponseHandler();
         BigDecimal[] latAndLong = responseHandler.LatAndLong(jsonResponse);
 
+        //Finding 2 stops within 1000m of the lat & long:
         jsonResponse = requestHandler.busStopFinder(latAndLong);
         List<String> stops = responseHandler.stopFinder(jsonResponse);
 
+        //Retrieving the info for those stops in a Array:
+        List<StopInfo> stopInfo = new ArrayList<>();
+        for(int i = 0; i<stops.size(); i++){
+            jsonResponse = requestHandler.busStopInfo(stops.get(i));
+            stopInfo.addAll(responseHandler.busStopInfo(jsonResponse));
+        }
+        outputStops(stopInfo);
 
     }
 
@@ -82,14 +92,14 @@ public class Main {
         String jsonResponse = requestHandler.busStopInfo(input);
 
         // Converting the above JSON response to List of StopInfo objects:
-        List<StopInfo> stops = new ArrayList<>();
+        List<StopInfo> stopInfo = new ArrayList<>();
         ResponseHandler responseHandler = new ResponseHandler();
-        stops = responseHandler.BusStopInfo(jsonResponse);
-        outputStops(stops);
+        stopInfo= responseHandler.busStopInfo(jsonResponse);
+        outputStops(stopInfo);
     }
 
     public static void outputStops(List<StopInfo> stops){
-        for(int i=0; i<5; i++) {
+        for(int i=0; i< stops.size(); i++) {
             StopInfo tempStopInfo = stops.get(i);
 
             int mins = tempStopInfo.getTimeToStation() / 60;
