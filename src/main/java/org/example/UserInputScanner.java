@@ -5,14 +5,23 @@ import java.util.Scanner;
 public class UserInputScanner {
     Scanner sc = new Scanner(System.in);
 
+    public String inputOptionSelector(){
+        String input = "";
+
+        System.out.println("Please choose whether you would like to enter:");
+        System.out.println("'Postcode' or 'Stopcode':");
+        input = sc.nextLine();
+
+        return input;
+        }
     public String busStopCodeUserInput(){
-        String stopCode = "";
+        String input = "";
 
         System.out.println("Please enter the bus stop code you wish to search");
         System.out.println("For Example: 490000129R");
-        stopCode = sc.nextLine();
+        input = sc.nextLine();
 
-        return stopCode;
+        return input;
     }
 
     public String postCodeInput(){

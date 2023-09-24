@@ -22,7 +22,40 @@ public class Main {
         //"Get list of bus stops in a specified...
         //^ take lat, long, bus stop type V, and radius
         //NaptanOnstreetBusCoachStopPair ??
+        String input = "";
+        UserInputScanner userInputScanner = new UserInputScanner();
+        input = userInputScanner.inputOptionSelector();
 
+        if(input.equalsIgnoreCase("Postcode") || input.equalsIgnoreCase("Stopcode")){
+            if(input.equalsIgnoreCase("Postcode")){
+                postcodeOptionSelected();
+            }
+            if(input.equalsIgnoreCase("Stopcode")){
+                busStopOptionSelected();
+            }
+        }
+        else{
+            System.out.println("You have not entered a correct selection");
+        }
+        userInputScanner.close();
+    }
+
+    public static void postcodeOptionSelected(){
+        // User input for post code:
+        UserInputScanner userInputScanner = new UserInputScanner();
+        String input = userInputScanner.postCodeInput();
+
+        //Making JSON request for Post Code:
+        RequestHandler requestHandler = new RequestHandler();
+        String jsonResponse = requestHandler.postcode(input);
+
+        //Converting response to lat and long stored in array
+        ResponseHandler responseHandler = new ResponseHandler();
+        BigDecimal[] latAndLong = responseHandler.LatAndLong(jsonResponse);
+        System.out.println("It works, lat = " + latAndLong[0] + " and long = " + latAndLong[1] + "!");
+    }
+
+    public static void busStopOptionSelected(){
         // User input for Stop Code:
         String input = "";
         UserInputScanner userInputScanner = new UserInputScanner();
@@ -37,22 +70,6 @@ public class Main {
         ResponseHandler responseHandler = new ResponseHandler();
         stops = responseHandler.BusStopInfo(jsonResponse);
         outputStops(stops);
-
-        // User input for post code:
-        input = userInputScanner.postCodeInput();
-        //Last time we'll be using scanner:
-        userInputScanner.close();
-
-        //Making JSON request for Post Code:
-        jsonResponse = requestHandler.postcode(input);
-
-        //Converting response to lat and long stored in array
-        BigDecimal[] latAndLong = responseHandler.LongAndLat(jsonResponse);
-        System.out.println("It works, lat = " + latAndLong[0] + " and long = " + latAndLong[1] + "!");
-    }
-
-    public static void busStopOptionSelected(){
-
     }
 
 

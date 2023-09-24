@@ -49,10 +49,9 @@ public class ResponseHandler {
         return stops;
     }
 
-    public BigDecimal[] LongAndLat(String responseString){
+    public BigDecimal[] LatAndLong(String responseString){
         BigDecimal[] latAndLong = new BigDecimal[2];
         JSONObject response = new JSONObject(responseString);
-
 
         latAndLong[0] = response.getJSONObject("result").getBigDecimal("latitude");
         latAndLong[1] = response.getJSONObject("result").getBigDecimal("longitude");
