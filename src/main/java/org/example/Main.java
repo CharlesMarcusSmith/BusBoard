@@ -15,13 +15,22 @@ import org.json.*;
 public class Main {
     public static void main(String[] args) {
 
-        // DEVELOPEMENT NOTES / TO DO:
-        // May need Query parameter at the end for app key or something?
-        // Ask user for Post Code and take Stop Code as Input
-        //"Get list of bus stops in a specified...
-        //^ take lat, long, bus stop type V, and radius
-        //NaptanOnstreetBusCoachStopPair ??
+        //DEVELOPEMENT NOTES / TO DO:
+        //Add destination to StopInfo and Response method
+        //Call StopInfo
+
+
+
+        //Stretch goals for future?:
+
         //Reduce size of results to two till sorted by Distance
+
+        //For example, you could edit your program to:
+
+        //Plan a journey to any postcode in London
+        //Check for any disruptions
+        //Provide a list of a bus’s upcoming stops and estimated times
+
         // Exception hadnling and loggin required.s
         //What if no results are found but data is entered correctly? like no bus stops are found with long lat etc..
 
@@ -58,6 +67,8 @@ public class Main {
 
         jsonResponse = requestHandler.busStopFinder(latAndLong);
         List<String> stops = responseHandler.stopFinder(jsonResponse);
+
+
     }
 
     public static void busStopOptionSelected(){
