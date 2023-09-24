@@ -49,23 +49,13 @@ public class ResponseHandler {
         return stops;
     }
 
-    public BigDecimal[] LongAndLat(String response){
+    public BigDecimal[] LongAndLat(String responseString){
         BigDecimal[] latAndLong = new BigDecimal[2];
-        JSONObject outer = new JSONObject(response);
-        BigDecimal longitude;
-        BigDecimal latitude;
-        try {
-            JSONObject inner = outer.getJSONObject("result");
-            longitude = inner.getBigDecimal("longitude");
-            latitude = inner.getBigDecimal("latitudes");
-            latAndLong[0]= longitude;
+        JSONObject response = new JSONObject(responseString);
 
-        } catch (Exception e){
 
-        }
-
-//        latAndLong[0] = outer.getJSONObject("result").getBigDecimal("latitude");
-//        latAndLong[1] = outer.getJSONObject("result").getBigDecimal("longitude");
+        latAndLong[0] = response.getJSONObject("result").getBigDecimal("latitude");
+        latAndLong[1] = response.getJSONObject("result").getBigDecimal("longitude");
 
         return latAndLong;
     }

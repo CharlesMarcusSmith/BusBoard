@@ -1,5 +1,6 @@
 package org.example;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -46,11 +47,8 @@ public class Main {
         jsonResponse = requestHandler.postcode(input);
 
         //Converting response to lat and long stored in array
-        String[] latAndLong = new String[2];
-        responseHandler.LongAndLat(jsonResponse);
-
-
-
+        BigDecimal[] latAndLong = responseHandler.LongAndLat(jsonResponse);
+        System.out.println("It works, lat = " + latAndLong[0] + " and long = " + latAndLong[1] + "!");
     }
 
     public static void busStopOptionSelected(){
