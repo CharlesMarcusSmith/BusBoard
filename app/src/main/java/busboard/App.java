@@ -37,4 +37,10 @@ public class App {
             System.out.println(e);
         }
     }
+
+    public static void readResponse(){
+        JsonReader jsonReader = Json.createReader(...);
+        JsonObject object = jsonReader.readObject();
+        jsonReader.close();
+    }
 }
